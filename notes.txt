@@ -1,1 +1,15 @@
-uv.lock = 
+uv:
+
+mise:
+
+Docker:
+    imagens:
+    volumes:
+    containeres:
+
+psycopg:
+
+Sqlalchemy:
+    Session:
+    Engine:
+    
