@@ -1,5 +1,6 @@
 from sqlalchemy.orm import Session
-from app.schemas.todo_schema import TodoCreate
+from sqlalchemy import select
+from app.schemas.todo_schema import TodoCreate, TodoRead, TodoUpdate
 from app.models.todos_model import Todo
 
 def create_todo(db: Session, todo_data: TodoCreate) -> Todo:
@@ -16,3 +17,7 @@ def create_todo(db: Session, todo_data: TodoCreate) -> Todo:
 
     return new_todo
 
+def read_all_todos(db: Session) -> list[Todo]:
+    query = select(Todo)
+    all_todos = db.scalars(query).all()
+    return all_todos
